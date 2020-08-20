@@ -1,22 +1,38 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] List<Waypoint> path;
+    [SerializeField]float moveSpeed = 5f;
+    Pathfinder pathfinder;
+    Coroutine MoveIE;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(MyWaypoints());
+        pathfinder = FindObjectOfType<Pathfinder>();
+        var path = pathfinder.GetPath();
+        StartCoroutine(FollowPath(path));
     }
 
-    IEnumerator MyWaypoints()
+    IEnumerator FollowPath(List<Waypoint> path)
     {
         foreach (Waypoint waypoint in path)
         {
-            transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(1f);
+            MoveIE = StartCoroutine(Moving(waypoint));
+            yield return MoveIE;
+            //transform.position = waypoint.transform.position;
+            //yield return new WaitForSeconds(1f);
+        }
+    }
+
+    IEnumerator Moving(Waypoint waypoint)
+    {
+        while(transform.position != waypoint.transform.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, waypoint.transform.position, moveSpeed * Time.deltaTime);
+            yield return null;
         }
     }
 
