@@ -15,9 +15,9 @@ public class Pathfinder : MonoBehaviour
 
     Vector2Int[] directions =
     {
+        Vector2Int.down,
         Vector2Int.up,
         Vector2Int.right,
-        Vector2Int.down,
         Vector2Int.left
     };
 
