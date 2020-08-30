@@ -7,6 +7,7 @@ public class Waypoint : MonoBehaviour
     const int gridSize = 10;
 
     public bool isExplored = false;
+    public bool isPlaceable = true;
     public Waypoint exploredFrom;
 
     Vector2Int gridPos;
@@ -17,6 +18,22 @@ public class Waypoint : MonoBehaviour
         //{
         //    SetTopColour(Color.cyan);
         //}
+    }
+
+    private void OnMouseOver()
+    {
+        
+    }
+
+    private void OnMouseDown()
+    {
+        if (Input.GetButtonDown("Fire1")) //left click
+        {
+            if (isPlaceable)
+            {
+                Debug.Log(gameObject.name);
+            }
+        }
     }
 
     public int GetGridSize()

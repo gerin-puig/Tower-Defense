@@ -1168,9 +1168,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 1824141710}
-  targetEnemy: {fileID: 213327262}
   bullet: {fileID: 1839750427}
   towerRange: 25
+  targetEnemy: {fileID: 213327262}
 --- !u!4 &448399622 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6310251485744823473, guid: 50faca631ea74e44fbf6d5fa6a425640,
@@ -2472,6 +2472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isExplored: 0
+  isPlaceable: 1
   exploredFrom: {fileID: 0}
 --- !u!1 &963194225
 GameObject:
@@ -3723,11 +3724,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: x3,z3
       objectReference: {fileID: 0}
-    - target: {fileID: 5862893484553052736, guid: 05b89aaa67d18e54194eb3f86c446231,
-        type: 3}
-      propertyPath: m_Text
-      value: x3,z3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05b89aaa67d18e54194eb3f86c446231, type: 3}
 --- !u!4 &1359227290 stripped
@@ -4899,6 +4895,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7733593687102415795, guid: 50faca631ea74e44fbf6d5fa6a425640,
+        type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733593687102415795, guid: 50faca631ea74e44fbf6d5fa6a425640,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8875261424167239481, guid: 50faca631ea74e44fbf6d5fa6a425640,
         type: 3}
       propertyPath: m_Name
@@ -5440,15 +5446,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1165835891}
     m_Modifications:
-    - target: {fileID: 2136587346, guid: 7bd952cf714b279459aa81d7d5d48222, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 721216414765714979, guid: 7bd952cf714b279459aa81d7d5d48222,
-        type: 3}
-      propertyPath: flashTime
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3744782827827691331, guid: 7bd952cf714b279459aa81d7d5d48222,
         type: 3}
       propertyPath: m_LocalPosition.x
