@@ -6,6 +6,9 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] int hitPoints = 10;
     [SerializeField] float flashTime = 1f;
+    [SerializeField] ParticleSystem hitParticlePrefab;
+    [SerializeField] GameObject deathParticlePrefab;
+
     Color originalColour = Color.red;
     new MeshRenderer renderer;
 
@@ -19,13 +22,16 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        DamageIndicator();
-        ProcessHit();
-
+        if (hitPoints > 0)
+        {
+            DamageIndicator();
+            ProcessHit();
+        }
     }
 
     private void DamageIndicator()
     {
+        hitParticlePrefab.Play();
         renderer.material.color = Color.red;
         Invoke("ResetColour", flashTime);
     }
@@ -42,7 +48,11 @@ public class EnemyDamage : MonoBehaviour
 
         if (hitPoints < 1)
         {
+            GameObject dp = Instantiate(deathParticlePrefab, gameObject.transform.position, Quaternion.identity);
+            dp.GetComponent<ParticleSystem>().Play();
+
             Destroy(gameObject);
+            Destroy(dp, 2.0f);
         }
     }
 }

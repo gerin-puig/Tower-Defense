@@ -29,9 +29,10 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator Moving(Waypoint waypoint)
     {
-        while(transform.position != waypoint.transform.position)
+        while(transform.position != waypoint.transform.position + new Vector3(0, 2.5f, 0))
         {
-            transform.position = Vector3.MoveTowards(transform.position, waypoint.transform.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, waypoint.transform.position + new Vector3(0, 2.5f, 0), 
+                moveSpeed * Time.deltaTime);
             yield return null;
         }
     }

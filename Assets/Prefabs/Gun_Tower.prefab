@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6310251485744823473}
+  - component: {fileID: 448399620}
+  - component: {fileID: 448399621}
   m_Layer: 0
   m_Name: Gun_Tower
   m_TagString: Untagged
@@ -32,6 +34,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448399620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875261424167239481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45b76cd8334d71a4eb02e1f1c716e974, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSize: 10
+--- !u!114 &448399621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8875261424167239481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831afc83c7d14e942809a66f7c2bff5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPan: {fileID: 1482364792179803223}
+  bullet: {fileID: 7733593687102415795}
+  towerRange: 25
+  targetEnemy: {fileID: 0}
 --- !u!1001 &1485335402681823295
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87,11 +118,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9209798386324607884, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209798386324607884, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209798386324607884, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9209798386324607884, guid: 8238921bafd389b44921fe80cc7f1f9d,
+        type: 3}
+      propertyPath: SubModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
 --- !u!4 &1482364792179803223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1485335402681823295}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7733593687102415795 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9209798386324607884, guid: 8238921bafd389b44921fe80cc7f1f9d,
     type: 3}
   m_PrefabInstance: {fileID: 1485335402681823295}
   m_PrefabAsset: {fileID: 0}

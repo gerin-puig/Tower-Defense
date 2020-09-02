@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(enemy, new Vector3(-16, 0, 0), Quaternion.identity);
+            Instantiate(enemy, new Vector3(-16, 2.5f, 0), Quaternion.identity);
             yield return new WaitForSeconds(secondsPerSpawn);
         }
         
