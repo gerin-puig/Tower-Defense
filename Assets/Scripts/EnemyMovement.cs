@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]float moveSpeed = 5f;
+    [SerializeField] ParticleSystem goalParticle;
     Pathfinder pathfinder;
     Coroutine MoveIE;
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class EnemyMovement : MonoBehaviour
             //transform.position = waypoint.transform.position;
             //yield return new WaitForSeconds(1f);
         }
+        EnemyDeath();
     }
 
     IEnumerator Moving(Waypoint waypoint)
@@ -35,11 +37,16 @@ public class EnemyMovement : MonoBehaviour
                 moveSpeed * Time.deltaTime);
             yield return null;
         }
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void EnemyDeath()
     {
-        
+        ParticleSystem vfx = Instantiate(goalParticle, transform.position, Quaternion.identity);
+        vfx.Play();
+        float vfxDuration = vfx.main.duration;
+
+        Destroy(gameObject);
+        Destroy(vfx.gameObject, vfxDuration);
     }
 }

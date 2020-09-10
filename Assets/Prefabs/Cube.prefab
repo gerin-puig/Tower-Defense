@@ -42,7 +42,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52918598724705363}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f67f5292eea9ad7458fe58dc83780f74, type: 3}
   m_Name: 
@@ -59,7 +59,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2cc17908d11f6458f1070f770f1782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 8875261424167239481, guid: 50faca631ea74e44fbf6d5fa6a425640, type: 3}
   isExplored: 0
   isPlaceable: 1
   exploredFrom: {fileID: 0}

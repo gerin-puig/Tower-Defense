@@ -48,11 +48,21 @@ public class EnemyDamage : MonoBehaviour
 
         if (hitPoints < 1)
         {
-            GameObject dp = Instantiate(deathParticlePrefab, gameObject.transform.position, Quaternion.identity);
-            dp.GetComponent<ParticleSystem>().Play();
-
-            Destroy(gameObject);
-            Destroy(dp, 2.0f);
+            EnemyDeath();
         }
+    }
+
+    private void EnemyDeath()
+    {
+        var enemy = FindObjectOfType<EnemySpawner>();
+        enemy.enemyCount--;
+        enemy.PrintEnemyCounter();
+
+        GameObject dp = Instantiate(deathParticlePrefab, gameObject.transform.position, Quaternion.identity);
+        dp.GetComponent<ParticleSystem>().Play();
+        float dpDuration = dp.GetComponent<ParticleSystem>().main.duration;
+
+        Destroy(gameObject);
+        Destroy(dp, dpDuration);
     }
 }

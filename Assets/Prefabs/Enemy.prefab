@@ -47,7 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19050082d1c34b24da0a2784d41d7c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
+  goalParticle: {fileID: 7220033288862922704, guid: 71c054e9ad020f54ab1b29b51be3255a,
+    type: 3}
 --- !u!114 &721216414765714979
 MonoBehaviour:
   m_ObjectHideFlags: 0
